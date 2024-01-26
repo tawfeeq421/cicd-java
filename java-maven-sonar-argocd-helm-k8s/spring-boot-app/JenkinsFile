@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://100.26.162.17:9000/"
+        SONAR_URL = "http://3.82.206.178:9000/"
       }
       steps {
         withCredentials([string(credentialsId: 'Sonar', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -31,7 +31,7 @@ pipeline {
     }
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "tawfeeq421/ultimate-cicd3:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "tawfeeq421/ultimate-cicd4:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('dockerhub')
       }
